@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #2b0f1e, #5a1f3d, #8b284b);
+    background-size: 400% 400%;
+    animation: bg 12s ease infinite;
+    color: #000;
+    padding: 30px 0;
+}
+
+@keyframes bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 92%;
+    max-width: 520px;
+    background: rgba(255,255,255,0.93);
+    padding: 30px 25px;
+    border-radius: 26px;
+    box-shadow: 
+        0 0 30px rgba(255, 77, 109, 0.4),
+        0 20px 50px rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+.intro {
+    font-size: 1.1em;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.kavithai {
+    white-space: pre-line;
+    font-size: 1.15em;
+    line-height: 1.7;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1.2s;
+}
+
+.final {
+    margin-top: 28px;
+    font-size: 1.4em;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 3.8s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 22px;
+    animation: floatUp linear infinite;
+    opacity: 0.85;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <div class="container">
+
+    <div class="intro">
+        This is what my heart wants to tell you…
+    </div>
+
+    <div class="kavithai">
+உன்னை காதலிக்க ஆரம்பித்த நாள் முதல்,
+என் வாழ்க்கை
+மெதுவாக நிறம் மாற ஆரம்பித்தது.
+
+நீ அருகில் இருக்கும் போது,
+உலகம் சற்று அமைதியாகி விடுகிறது,
+என் மனசு மட்டும்
+உன்னாலே நிரம்பி விடுகிறது.
+
+நீ என் கையை பிடிக்கும் அந்த நிமிடம்,
+எல்லா பயங்களும்
+என்னை விட்டு விலகி போகிறது.
+
+உறவு, எதிர்காலம், உலகம்—
+எதுவும் உறுதி இல்லை…
+ஆனால்,
+உன்னிடம் என் மனசு
+முழுமையாக உறுதி கொண்டிருக்கிறது.
+    </div>
+
+    <div class="final">
+        Happy Valentine’s Day, my love ❤️<br>
+        You’re not just my boyfriend — you’re my home.
+    </div>
+
+  </div>
+</div>
+
+<script>
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 9000);
+}, 500);
+</script>
+
+</body>
+</html>

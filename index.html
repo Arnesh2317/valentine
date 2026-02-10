@@ -1,173 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Favourite Person 💖</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For You 💖</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-body{
-    margin:0;
-    min-height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ff6a88,#9b5de5,#fca311);
-    background-size:300% 300%;
-    animation:bgMove 10s ease infinite;
-    font-family:'Segoe UI',sans-serif;
-}
+    body {
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(-45deg, #ff9a9e, #c77dff, #ff758f);
+        background-size: 400% 400%;
+        animation: bg 10s ease infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: black;
+    }
 
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
+    @keyframes bg {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 
-.box{
-    background:rgba(255,255,255,0.93);
-    padding:28px;
-    border-radius:24px;
-    text-align:center;
-    width:90%;
-    max-width:360px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.3);
-    z-index:2;
-}
+    .container {
+        width: 90%;
+        max-width: 500px;
+        background: rgba(255,255,255,0.8);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        position: relative;
+        z-index: 2;
+    }
 
-h1{
-    color:#9b5de5;
-    margin-bottom:12px;
-    font-size:1.8rem;
-}
+    h1 {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
 
-p{
-    font-size:1rem;
-    color:#222;
-    line-height:1.5;
-}
+    p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
 
-.buttons{
-    display:flex;
-    gap:15px;
-    margin-top:22px;
-}
+    button {
+        padding: 12px 25px;
+        font-size: 1em;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+    }
 
-button{
-    flex:1;
-    border:none;
-    padding:14px;
-    border-radius:30px;
-    font-size:1rem;
-    cursor:pointer;
-    transition:0.2s;
-}
+    .yes {
+        background: #ff4d6d;
+        color: white;
+    }
 
-#yes{
-    background:#ff4d6d;
-    color:white;
-}
+    .no {
+        background: #ddd;
+        position: absolute;
+    }
 
-#yes:active{
-    transform:scale(0.95);
-}
+    .hidden {
+        display: none;
+    }
 
-#no{
-    background:#ddd;
-}
+    .fade {
+        animation: fadeIn 1.2s ease forwards;
+        opacity: 0;
+    }
 
-/* Flying hearts */
-.heart{
-    position:fixed;
-    bottom:-20px;
-    font-size:22px;
-    animation:floatUp linear infinite;
-    color:rgba(255,0,100,0.8);
-}
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
 
-@keyframes floatUp{
-    0%{transform:translateY(0) scale(1); opacity:1;}
-    100%{transform:translateY(-110vh) scale(1.6); opacity:0;}
-}
+    .kavithai {
+        font-size: 1.15em;
+        white-space: pre-line;
+        margin-top: 15px;
+    }
 
-/* Mobile tweaks */
-@media (max-width:480px){
-    h1{font-size:1.6rem;}
-    p{font-size:0.95rem;}
-}
+    .final {
+        margin-top: 20px;
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+
+    .float {
+        position: absolute;
+        bottom: -20px;
+        font-size: 22px;
+        animation: floatUp linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+        to {
+            transform: translateY(-110vh);
+            opacity: 0;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h1>Hey You 💕</h1>
+<div class="container" id="main">
+    <h1>Hey you 💖</h1>
     <p>
         Every little moment with you feels special.<br>
-        You make my days brighter and my smiles real 🌈<br><br>
-        Will you be my favourite person? 💖
+        You make my days lighter and happier 🌈<br><br>
+        Will you be my favourite person? 💫
+    </p>
+    <button class="yes" onclick="yesClick()">YES</button>
+    <button class="no" id="noBtn">NO</button>
+</div>
+
+<div class="container hidden" id="yesScreen">
+    <p class="fade">இதுதான் நான் சொல்ல நினைத்தது…</p>
+
+    <p class="kavithai fade" style="animation-delay:1.5s;">
+உன்னை நினைக்கும் ஒவ்வொரு முறையும்
+என் மனசு
+சற்று அதிகமாக துடிக்கிறது…
+
+எதுவும் பேசாமல்,
+எதையும் எதிர்பார்க்காமல்,
+நீ அருகில் இருப்பதே
+எனக்கு போதுமானதாகி விட்டது.
+
+நீ சிரிக்கும் அந்த ஒரு கணம்,
+என் மனசுக்குள்ள
+ஒரு வாழ்நாள் நினைவாக மாறுகிறது.
+
+உறவு என்ன பெயரில் இருக்க வேண்டும் என்பதே
+எனக்கு முக்கியம் இல்லை…
+நீ என் வாழ்க்கையில் இருப்பதே
+எனக்கு மிகப் பெரிய சந்தோஷம்.
     </p>
 
-    <div class="buttons">
-        <button id="yes" onclick="yesClick()">YES 😍</button>
-        <button id="no" onmouseover="moveNo()" ontouchstart="moveNo()">NO 🙈</button>
+    <div class="final fade" style="animation-delay:3.8s;">
+        Happy Valentine’s Day,<br>
+        my favourite person 💖
     </div>
 </div>
 
 <script>
-/* Flying hearts */
-function createHeart(){
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),6000);
-}
-setInterval(createHeart,300);
+    const noBtn = document.getElementById("noBtn");
 
-/* YES click */
-function yesClick(){
-    document.body.innerHTML = `
-    <div style="
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction:column;
-        background:linear-gradient(135deg,#ff6a88,#9b5de5,#fca311);
-        color:black;
-        font-family:Segoe UI;
-        text-align:center;
-        padding:20px;">
-        
-        <h1 style="font-size:3em; color:black;">YAYYYY 🥳💖</h1>
-        <p style="font-size:1.4em; color:black; line-height:1.6;">
-            You just made my life feel extra special!<br>
-            Every day with you feels happier, and every minute feels lighter ✨<br>
-            Even your voice or a simple text makes my day wholesome and bright 🌈<br><br>
-            Thank you for being such an amazing person 🫶<br>
-            <b>Happy Valentine’s Day 💌</b>
-        </p>
-    </div>`;
-}
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * 250;
+        const y = Math.random() * 250;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
 
-/* Evil NO button 😈 */
-function moveNo(){
-    const no = document.getElementById("no");
-    const maxX = window.innerWidth - no.offsetWidth;
-    const maxY = window.innerHeight - no.offsetHeight;
-    no.style.position = "fixed";
-    no.style.left = Math.random() * maxX + "px";
-    no.style.top = Math.random() * maxY + "px";
-    no.style.transform = "scale(0.85)";
-}
+    function yesClick() {
+        document.getElementById("main").classList.add("hidden");
+        document.getElementById("yesScreen").classList.remove("hidden");
+    }
+
+    const symbols = ["❤️","✨","🌈","🌸","☀️"];
+
+    setInterval(() => {
+        const el = document.createElement("div");
+        el.className = "float";
+        el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.animationDuration = (4 + Math.random() * 4) + "s";
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 8000);
+    }, 400);
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>

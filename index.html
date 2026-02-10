@@ -6,112 +6,130 @@
 <title>For You 💖</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', sans-serif;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-    body {
-        height: 100vh;
-        overflow: hidden;
-        background: linear-gradient(-45deg, #ff9a9e, #c77dff, #ff758f);
-        background-size: 400% 400%;
-        animation: bg 10s ease infinite;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: black;
-    }
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #ff9a9e, #c77dff, #ff758f);
+    background-size: 400% 400%;
+    animation: bg 10s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+}
 
-    @keyframes bg {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+@keyframes bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-    .container {
-        width: 90%;
-        max-width: 500px;
-        background: rgba(255,255,255,0.8);
-        padding: 25px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        position: relative;
-        z-index: 2;
-    }
+.container {
+    width: 90%;
+    max-width: 520px;
+    padding: 28px;
+    border-radius: 25px;
+    position: relative;
+    z-index: 2;
+}
 
-    h1 {
-        font-size: 2em;
-        margin-bottom: 15px;
-    }
+/* First screen */
+#main {
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
 
-    p {
-        font-size: 1.2em;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
+/* YES screen – enhanced background */
+#yesScreen {
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.92),
+        rgba(255,230,240,0.95)
+    );
+    box-shadow:
+        0 0 25px rgba(255, 77, 109, 0.35),
+        0 15px 40px rgba(0,0,0,0.25);
+    backdrop-filter: blur(6px);
+}
 
-    button {
-        padding: 12px 25px;
-        font-size: 1em;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        margin: 10px;
-    }
+h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
 
-    .yes {
-        background: #ff4d6d;
-        color: white;
-    }
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
 
-    .no {
-        background: #ddd;
-        position: absolute;
-    }
+button {
+    padding: 12px 26px;
+    font-size: 1em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+}
 
-    .hidden {
-        display: none;
-    }
+.yes {
+    background: #ff4d6d;
+    color: white;
+}
 
-    .fade {
-        animation: fadeIn 1.2s ease forwards;
+.no {
+    background: #ddd;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+.fade {
+    animation: fadeIn 1.3s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.kavithai {
+    font-size: 1.15em;
+    white-space: pre-line;
+    margin-top: 15px;
+}
+
+.final {
+    margin-top: 22px;
+    font-size: 1.45em;
+    font-weight: bold;
+}
+
+/* Floating hearts */
+.float {
+    position: absolute;
+    bottom: -20px;
+    font-size: 22px;
+    animation: floatUp linear infinite;
+    opacity: 0.85;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
         opacity: 0;
     }
-
-    @keyframes fadeIn {
-        to { opacity: 1; }
-    }
-
-    .kavithai {
-        font-size: 1.15em;
-        white-space: pre-line;
-        margin-top: 15px;
-    }
-
-    .final {
-        margin-top: 20px;
-        font-size: 1.4em;
-        font-weight: bold;
-    }
-
-    .float {
-        position: absolute;
-        bottom: -20px;
-        font-size: 22px;
-        animation: floatUp linear infinite;
-        opacity: 0.8;
-    }
-
-    @keyframes floatUp {
-        to {
-            transform: translateY(-110vh);
-            opacity: 0;
-        }
-    }
+}
 </style>
 </head>
 
@@ -158,23 +176,22 @@
 </div>
 
 <script>
-    const noBtn = document.getElementById("noBtn");
+const noBtn = document.getElementById("noBtn");
 
-    noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * 250;
-        const y = Math.random() * 250;
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    });
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 260;
+    const y = Math.random() * 260;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
 
-    function yesClick() {
-        document.getElementById("main").classList.add("hidden");
-        document.getElementById("yesScreen").classList.remove("hidden");
-    }
+let heartInterval;
 
-    const symbols = ["❤️","✨","🌈","🌸","☀️"];
+/* Floating symbols BEFORE yes */
+const symbolsBefore = ["❤️","✨","🌈","🌸","☀️"];
 
-    setInterval(() => {
+function startFloating(symbols) {
+    heartInterval = setInterval(() => {
         const el = document.createElement("div");
         el.className = "float";
         el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
@@ -182,12 +199,22 @@
         el.style.animationDuration = (4 + Math.random() * 4) + "s";
         document.body.appendChild(el);
         setTimeout(() => el.remove(), 8000);
-    }, 400);
+    }, 450);
+}
+
+startFloating(symbolsBefore);
+
+function yesClick() {
+    document.getElementById("main").classList.add("hidden");
+    document.getElementById("yesScreen").classList.remove("hidden");
+
+    /* Stop previous symbols */
+    clearInterval(heartInterval);
+
+    /* ONLY hearts after YES */
+    startFloating(["❤️"]);
+}
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>

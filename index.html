@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Be My Valentine 💘</title>
+<title>Favourite Person 💖</title>
 
 <style>
 *{
@@ -16,12 +16,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(
-        135deg,
-        #ff6a88,
-        #9b5de5,
-        #fca311
-    );
+    background:linear-gradient(135deg,#ff6a88,#9b5de5,#fca311);
     background-size:300% 300%;
     animation:bgMove 10s ease infinite;
     font-family:'Segoe UI',sans-serif;
@@ -95,14 +90,8 @@ button{
 }
 
 @keyframes floatUp{
-    0%{
-        transform:translateY(0) scale(1);
-        opacity:1;
-    }
-    100%{
-        transform:translateY(-110vh) scale(1.6);
-        opacity:0;
-    }
+    0%{transform:translateY(0) scale(1); opacity:1;}
+    100%{transform:translateY(-110vh) scale(1.6); opacity:0;}
 }
 
 /* Mobile tweaks */
@@ -119,8 +108,8 @@ button{
     <h1>Hey You 💕</h1>
     <p>
         Every little moment with you feels special.<br>
-        You make my days brighter and my smiles real 🌹<br><br>
-        Will you be my Valentine? 💖
+        You make my days brighter and my smiles real 🌈<br><br>
+        Will you be my favourite person? 💖
     </p>
 
     <div class="buttons">
@@ -138,7 +127,6 @@ function createHeart(){
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (3 + Math.random() * 3) + "s";
     document.body.appendChild(heart);
-
     setTimeout(()=>heart.remove(),6000);
 }
 setInterval(createHeart,300);
@@ -157,32 +145,30 @@ function yesClick(){
         font-family:Segoe UI;
         text-align:center;
         padding:20px;">
-        <h1 style="font-size:3em; color:black;">YAYYYY 💘🥰</h1>
-
-        <p style="font-size:1.6em;">
-            You just made my heart so happy ❤️<br>
-            Thank you for being my Valentine 🌹
+        
+        <h1 style="font-size:3em; color:black;">YAYYYY 🥳💖</h1>
+        <p style="font-size:1.4em; color:black; line-height:1.6;">
+            You just made my life feel extra special!<br>
+            Every day with you feels happier, and every minute feels lighter ✨<br>
+            Even your voice or a simple text makes my day wholesome and bright 🌈<br><br>
+            Thank you for being such an amazing person 🫶<br>
+            <b>Happy Valentine’s Day 💌</b>
         </p>
-        <p style="font-size:1.2em;">Forever & always 💖</p>
     </div>`;
 }
 
 /* Evil NO button 😈 */
 function moveNo(){
     const no = document.getElementById("no");
-
     const maxX = window.innerWidth - no.offsetWidth;
     const maxY = window.innerHeight - no.offsetHeight;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
     no.style.position = "fixed";
-    no.style.left = x + "px";
-    no.style.top = y + "px";
+    no.style.left = Math.random() * maxX + "px";
+    no.style.top = Math.random() * maxY + "px";
     no.style.transform = "scale(0.85)";
 }
 </script>
 
 </body>
 </html>
+
